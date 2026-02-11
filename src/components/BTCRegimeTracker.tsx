@@ -292,7 +292,7 @@ export default function BTCRegimeTracker() {
   }, 0);
   const maxScore = allIndicators.reduce((acc, ind) => acc + ind.weight, 0);
   // Convert to 0-100% scale: -maxScore = 0%, 0 = 50%, +maxScore = 100%
-  const percentage = Math.round(((totalScore + maxScore) / (maxScore * 2)) * 100);
+  const percentage = Math.round((totalScore + maxScore) / (maxScore * 2) * 100);
   const regime = getRegimeSignal(percentage);
 
   const resetAll = () => {
@@ -330,7 +330,7 @@ export default function BTCRegimeTracker() {
               {percentage}%
             </div>
             <div className="text-xs text-white/70 mb-3 font-mono">
-              Conviction Score (0% = Risk Off, 100% = Max Bullish)
+              Conviction Score 
             </div>
             <div className="inline-block px-4 py-1.5 bg-black/30 rounded-full">
               <span className="font-bold tracking-wide text-xl">{regime.label}</span>
@@ -401,7 +401,7 @@ export default function BTCRegimeTracker() {
             <p className="text-xs text-slate-400 mb-1 font-semibold">Score Thresholds:</p>
             <div className="text-[10px] text-slate-400 leading-relaxed">
               <span className="text-emerald-500">■</span> 80-100% = High Conviction Long &nbsp;
-              <span className="text-green-500">■</span> 65-79% = Accumulation Zone<br/>
+              <span className="text-green-500">■</span> 65-79% = Accumulation Zone<br />
               <span className="text-yellow-500">■</span> 40-64% = Neutral / Wait &nbsp;
               <span className="text-orange-500">■</span> 20-39% = Caution &nbsp;
               <span className="text-red-500">■</span> 0-19% = Risk Off

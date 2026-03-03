@@ -192,7 +192,6 @@ const IndicatorCard = ({ indicator, status, onStatusChange, expanded, onToggle, 
 
             <div className="space-y-2">
               <div className="flex items-start gap-2 p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
-                <CheckCircle className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
                 <div>
                   <span className="text-sm font-semibold text-emerald-400">Bullish when:</span>
                   <p className="text-sm text-slate-300 mt-0.5">{indicator.bullishCondition}</p>
@@ -201,7 +200,6 @@ const IndicatorCard = ({ indicator, status, onStatusChange, expanded, onToggle, 
 
               {indicator.neutralCondition &&
             <div className="flex items-start gap-2 p-3 rounded-lg bg-amber-500/10 border border-amber-500/20">
-                  <Clock className="w-4 h-4 text-amber-400 mt-0.5 flex-shrink-0" />
                   <div>
                     <span className="text-sm font-semibold text-amber-400">Neutral when:</span>
                     <p className="text-sm text-slate-300 mt-0.5">{indicator.neutralCondition}</p>
@@ -210,7 +208,6 @@ const IndicatorCard = ({ indicator, status, onStatusChange, expanded, onToggle, 
             }
 
               <div className="flex items-start gap-2 p-3 rounded-lg bg-red-500/10 border border-red-500/20">
-                <AlertCircle className="w-4 h-4 text-red-400 mt-0.5 flex-shrink-0" />
                 <div>
                   <span className="text-sm font-semibold text-red-400">Bearish when:</span>
                   <p className="text-sm text-slate-300 mt-0.5">{indicator.bearishCondition}</p>
@@ -219,15 +216,11 @@ const IndicatorCard = ({ indicator, status, onStatusChange, expanded, onToggle, 
             </div>
 
             <div className="p-3 rounded-lg bg-slate-700/30 border border-slate-600/30">
-              <div className="flex items-center gap-2 mb-1">
-                <Info className="w-4 h-4 text-blue-400" />
-                <span className="text-sm font-semibold text-blue-400">Why This Matters</span>
-              </div>
+              <p className="text-sm font-semibold text-blue-400 mb-1">Why This Matters</p>
               <p className="text-sm text-slate-300 leading-relaxed">{indicator.whyItMatters}</p>
             </div>
 
             <div className="flex items-center gap-2 text-sm text-slate-500">
-              <span>📊</span>
               <span>Source: {indicator.source}</span>
             </div>
           </div>

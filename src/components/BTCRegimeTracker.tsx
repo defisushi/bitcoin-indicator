@@ -234,7 +234,7 @@ const PhaseSection = ({ phase, phaseKey, indicators, expanded, onToggle, expande
         <div className="flex items-center gap-3">
           <div className="text-left">
             <h3 className="font-bold text-slate-100 text-sm">{phase.title}</h3>
-            <p className="text-slate-500 text-xs mt-2">{phase.subtitle}</p>
+            <p className="text-slate-500 text-sm mt-2">{phase.subtitle}</p>
           </div>
         </div>
         <div className="flex items-center gap-3">

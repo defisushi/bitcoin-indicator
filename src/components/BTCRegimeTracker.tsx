@@ -590,13 +590,6 @@ export default function BTCRegimeTracker() {
             <li><span className="text-slate-300 font-medium">Phase 3 (Exhaustion):</span> Your PRIMARY entry trigger — especially Hash Ribbons</li>
             <li><span className="text-slate-300 font-medium">Phase 4 (Confirm):</span> Price structure confirms the turn — add remaining size</li>
           </ol>
-
-          {/* Phase 1 Exception */}
-          <div className="mt-3 p-2.5 bg-amber-500/10 rounded-lg border border-amber-500/20">
-            <p className="text-sm text-amber-300 leading-relaxed">
-              <strong>⚠️ Phase 1 Exception (March 2020 scenario):</strong> If Phases 2-3 hit EXTREME readings (80%+) while Phase 1 is bearish, consider a starter position (25-33%). Historically, extreme on-chain capitulation forces policy responses. But wait for macro confirmation before full size.
-            </p>
-          </div>
         </div>
 
         {/* Weight System */}

@@ -583,13 +583,12 @@ export default function BTCRegimeTracker() {
           <h4 className="font-semibold text-slate-200 text-base mb-2.5">
             How to Use This
           </h4>
-          <ol className="text-sm text-slate-400 space-y-2 list-decimal list-inside leading-relaxed">
-            
-            <li><span className="text-slate-300 font-medium">Phase 1 (Macro):</span> Must be neutral/bullish for full position — this is "permission to play"</li>
-            <li><span className="text-slate-300 font-medium">Phase 2 (Value):</span> Tells you if BTC is cheap, but NOT when to buy</li>
-            <li><span className="text-slate-300 font-medium">Phase 3 (Exhaustion):</span> Your PRIMARY entry trigger — especially Hash Ribbons</li>
-            <li><span className="text-slate-300 font-medium">Phase 4 (Confirm):</span> Price structure confirms the turn — add remaining size</li>
-          </ol>
+          <div className="text-sm text-slate-400 space-y-3 leading-relaxed">
+            <p><span className="text-slate-300 font-medium">Phase 1 (Macro)</span><br />Must be neutral or bullish to have permission to play.</p>
+            <p><span className="text-slate-300 font-medium">Phase 2 (Value)</span><br />Tells you if BTC is cheap. Not to be mistaken for a buy signal.</p>
+            <p><span className="text-slate-300 font-medium">Phase 3 (Exhaustion)</span><br />Your primary trigger, especially Hash Ribbons.</p>
+            <p><span className="text-slate-300 font-medium">Phase 4 (Confirmation)</span><br />Additional signs that support size.</p>
+          </div>
         </div>
 
         {/* Weight System */}

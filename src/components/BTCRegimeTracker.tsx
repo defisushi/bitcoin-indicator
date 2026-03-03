@@ -112,12 +112,12 @@ const getRegimeSignal = (percentage: number) => {
   return { label: 'GTFO BABY!', color: 'from-red-600 to-red-400', bgGlow: 'shadow-red-500/30', description: 'Poor value. Want to end this cycle empty handed?' };
 };
 
-const IndicatorCard = ({ indicator, status, expanded, onToggle }: {
-  indicator: Indicator;
-  status: Status;
-  expanded: boolean;
-  onToggle: () => void;
-}) => {
+const IndicatorCard = ({ indicator, status, expanded, onToggle
+
+
+
+
+}: {indicator: Indicator;status: Status;expanded: boolean;onToggle: () => void;}) => {
   const statusConfig = STATUS_CONFIG[status];
   const chartUrl = CHART_URLS[indicator.id];
   const statusEmoji = status === 'bullish' ? '📈' : status === 'bearish' ? '📉' : '➖';
@@ -201,19 +201,19 @@ const IndicatorCard = ({ indicator, status, expanded, onToggle }: {
           </div>
         </div>
       }
-    </div>
-  );
+    </div>);
+
 };
 
-const PhaseSection = ({ phase, phaseKey, indicators, expanded, onToggle, expandedIndicator, onIndicatorToggle }: {
-  phase: Phase;
-  phaseKey: string;
-  indicators: Record<string, Status>;
-  expanded: boolean;
-  onToggle: () => void;
-  expandedIndicator: string | null;
-  onIndicatorToggle: (id: string) => void;
-}) => {
+const PhaseSection = ({ phase, phaseKey, indicators, expanded, onToggle, expandedIndicator, onIndicatorToggle
+
+
+
+
+
+
+
+}: {phase: Phase;phaseKey: string;indicators: Record<string, Status>;expanded: boolean;onToggle: () => void;expandedIndicator: string | null;onIndicatorToggle: (id: string) => void;}) => {
   const phaseIndicators = INDICATORS[phaseKey].indicators;
   const phaseScore = phaseIndicators.reduce((acc, ind) => {
     const status = indicators[ind.id] || 'neutral';
@@ -260,8 +260,8 @@ const PhaseSection = ({ phase, phaseKey, indicators, expanded, onToggle, expande
         )}
         </div>
       }
-    </div>
-  );
+    </div>);
+
 };
 
 export default function BTCRegimeTracker() {
@@ -404,7 +404,8 @@ export default function BTCRegimeTracker() {
           </h4>
           <div className="text-sm text-slate-400 space-y-3 leading-relaxed">
             <p><span className="text-slate-300 font-medium">Phase 1 (Macro)</span><br />Must be neutral or bullish to have permission to play.</p>
-            <p><span className="text-slate-300 font-medium">Phase 2 (Value)</span><br />Tells you if BTC is cheap. Not to be mistaken for a buy signal.</p>
+            <p><span className="text-slate-300 font-medium">Phase 2 (Value)</span><br />Phase 2 (Value)
+Tells you if BTC is cheap. Not always a buy signal yet.</p>
             <p><span className="text-slate-300 font-medium">Phase 3 (Exhaustion)</span><br />Your primary trigger, especially Hash Ribbons.</p>
             <p><span className="text-slate-300 font-medium">Phase 4 (Confirmation)</span><br />Additional signs that support size.</p>
           </div>
@@ -415,14 +416,13 @@ export default function BTCRegimeTracker() {
           <h4 className="font-semibold text-slate-200 text-base mb-2">Indicator Weights System</h4>
           <div className="text-sm text-slate-400 leading-relaxed space-y-1.5">
             <p className="mb-1.5">Some indicators are more important than others. The higher the weight the more useful.</p>
-            <p><span className="text-slate-300 font-medium">×3: Near perfect track record</span><br/>MVRV Z-Score, Hash Ribbons, 200-Week MA, Realized Price</p>
-            <p><span className="text-slate-300 font-medium">×2: Excellent but sometimes early</span><br/>Puell, Reserve Risk, LTH Supply, SOPR, Halving</p>
-            <p><span className="text-slate-300 font-medium">×1: Useful confirmation</span><br/>Macro indicators, stablecoins, price structure</p>
+            <p><span className="text-slate-300 font-medium">×3: Near perfect track record</span><br />MVRV Z-Score, Hash Ribbons, 200-Week MA, Realized Price</p>
+            <p><span className="text-slate-300 font-medium">×2: Excellent but sometimes early</span><br />Puell, Reserve Risk, LTH Supply, SOPR, Halving</p>
+            <p><span className="text-slate-300 font-medium">×1: Useful confirmation</span><br />Macro indicators, stablecoins, price structure</p>
           </div>
         </div>
 
         <p className="mt-8 text-xs text-slate-500 italic text-center">Backtested, but not rigorously. Not financial advice.</p>
       </div>
-    </div>
-  );
+    </div>);
 }

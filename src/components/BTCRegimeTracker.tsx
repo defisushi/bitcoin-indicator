@@ -597,15 +597,6 @@ export default function BTCRegimeTracker() {
               <strong>⚠️ Phase 1 Exception (March 2020 scenario):</strong> If Phases 2-3 hit EXTREME readings (80%+) while Phase 1 is bearish, consider a starter position (25-33%). Historically, extreme on-chain capitulation forces policy responses. But wait for macro confirmation before full size.
             </p>
           </div>
-
-
-
-          {/* High conviction entry */}
-          <div className="mt-3 p-2.5 bg-emerald-500/10 rounded-lg border border-emerald-500/20">
-            <p className="text-sm text-emerald-300">
-              <strong>High conviction entry:</strong> Phase 1 supportive + Phase 2 in value zone + Hash Ribbons buy signal + SOPR recovering above 1
-            </p>
-          </div>
         </div>
 
         {/* Weight System */}

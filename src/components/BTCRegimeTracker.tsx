@@ -311,22 +311,51 @@ export default function BTCRegimeTracker() {
   const [isSettingPin, setIsSettingPin] = useState(false);
   const [storedPin, setStoredPin] = useState<string | null>(null);
 
-  // Load data from localStorage on mount
+  // Load data: fetch from indicator-data.json first, then overlay localStorage
   useEffect(() => {
-    try {
-      const pin = localStorage.getItem('btc-tracker-pin');
-      if (pin) setStoredPin(pin);
+    const loadData = async () => {
+      try {
+        const pin = localStorage.getItem('btc-tracker-pin');
+        if (pin) setStoredPin(pin);
 
-      const saved = localStorage.getItem('btc-tracker-data');
-      if (saved) {
-        const parsed = JSON.parse(saved);
-        setIndicators(parsed.indicators || {});
-        setLastUpdated(parsed.lastUpdated || null);
-        setUpdatedBy(parsed.updatedBy || null);
+        // Fetch remote JSON data (updated by Perplexity agent via GitHub)
+        let remoteData: { indicators?: Record<string, Status>; lastUpdated?: string; updatedBy?: string } = {};
+        try {
+          const res = await fetch('/indicator-data.json');
+          if (res.ok) {
+            remoteData = await res.json();
+          }
+        } catch (e) {
+          console.log('Remote data fetch error:', e);
+        }
+
+        // Check localStorage for manual overrides
+        const saved = localStorage.getItem('btc-tracker-data');
+        let localData: { indicators?: Record<string, Status>; lastUpdated?: string; updatedBy?: string } = {};
+        if (saved) {
+          localData = JSON.parse(saved);
+        }
+
+        // Determine which data is newer
+        const remoteTime = remoteData.lastUpdated ? new Date(remoteData.lastUpdated).getTime() : 0;
+        const localTime = localData.lastUpdated ? new Date(localData.lastUpdated).getTime() : 0;
+
+        if (localTime > remoteTime && localData.indicators) {
+          // Local overrides are newer
+          setIndicators(localData.indicators);
+          setLastUpdated(localData.lastUpdated || null);
+          setUpdatedBy(localData.updatedBy || null);
+        } else if (remoteData.indicators) {
+          // Remote data is newer or same
+          setIndicators(remoteData.indicators);
+          setLastUpdated(remoteData.lastUpdated || null);
+          setUpdatedBy(remoteData.updatedBy || null);
+        }
+      } catch (e) {
+        console.log('Data load error:', e);
       }
-    } catch (e) {
-      console.log('LocalStorage load error:', e);
-    }
+    };
+    loadData();
   }, []);
 
   // Save data

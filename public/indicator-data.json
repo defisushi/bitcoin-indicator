@@ -1,0 +1,21 @@
+{
+  "lastUpdated": null,
+  "updatedBy": null,
+  "indicators": {
+    "globalM2": "neutral",
+    "financialConditions": "neutral",
+    "mvrvZScore": "neutral",
+    "realizedPrice": "neutral",
+    "twoHundredWeekMA": "neutral",
+    "reserveRisk": "neutral",
+    "puellMultiple": "neutral",
+    "ahr999": "neutral",
+    "hashRibbons": "neutral",
+    "sopr": "neutral",
+    "lthSupply": "neutral",
+    "realizedCapRoC": "neutral",
+    "weeklyHigherLow": "neutral",
+    "stablecoinSupply": "neutral",
+    "halvingCycle": "neutral"
+  }
+}

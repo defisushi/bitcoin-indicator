@@ -315,7 +315,6 @@ export default function BTCRegimeTracker() {
               Last updated: {new Date(lastUpdated).toLocaleDateString('en-US', {
               weekday: 'short', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
             })}
-              {updatedBy && ` by ${updatedBy}`}
             </span>
           </div>
         }
@@ -324,7 +323,7 @@ export default function BTCRegimeTracker() {
       {/* Score Thresholds */}
       <div className="px-4 mb-4">
         <div className="p-4 bg-slate-800/30 rounded-xl border border-slate-700/30">
-          <h4 className="font-semibold text-slate-200 text-base mb-2.5">Score Thresholds</h4>
+          <h4 className="font-semibold text-slate-200 text-base mb-2.5">Conviction Tier</h4>
           <div className="text-sm text-slate-400 leading-relaxed">
             <table className="border-collapse table-auto w-auto">
               <tbody className="[&>tr]:align-top [&>tr:not(:last-child)]:border-0 [&>tr:not(:last-child)]:border-transparent [&>tr:not(:last-child)]:[&>td]:pb-1.5">

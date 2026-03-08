@@ -103,7 +103,7 @@ const STATUS_CONFIG: Record<Status, {color: string;textColor: string;bgColor: st
 };
 
 const getRegimeSignal = (percentage: number) => {
-  if (percentage >= 81) return { label: 'MAX LONG, LFG!', color: 'from-emerald-600 to-emerald-400', bgGlow: 'shadow-emerald-500/30', description: 'Deep value. Strong risk/reward for deployment.' };
+  if (percentage >= 81) return { label: 'MAX LONG, LFG!', color: 'from-emerald-600 to-emerald-400', bgGlow: 'shadow-emerald-500/30', description: 'Deep Value.' };
   if (percentage >= 61) return { label: 'ACCUMULATION ZONE', color: 'from-emerald-600 to-amber-500', bgGlow: 'shadow-emerald-500/20', description: 'Attractive. Scale into position.' };
   if (percentage >= 41) return { label: 'PATIENCE...', color: 'from-amber-600 to-amber-400', bgGlow: 'shadow-amber-500/20', description: 'So so. Wait for more confirmation.' };
   if (percentage >= 21) return { label: 'DISTRIBUTION ZONE', color: 'from-amber-600 to-red-500', bgGlow: 'shadow-amber-500/20', description: 'Risky. Scale out of position.' };

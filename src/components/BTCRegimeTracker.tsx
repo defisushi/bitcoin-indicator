@@ -354,7 +354,7 @@ export default function BTCRegimeTracker() {
                   <td className="w-4 pr-2 text-yellow-500">{"\u25a0"}</td>
                   <td className="text-slate-300 font-medium whitespace-nowrap">41-60%</td>
                   <td className="px-1">:</td>
-                  <td>Patience...</td>
+                  <td>Patience... — <span className="text-slate-500 italic">Wait for more confirmation.</span></td>
                 </tr>
                 <tr>
                   <td className="w-4 pr-2 text-orange-500">{"\u25a0"}</td>

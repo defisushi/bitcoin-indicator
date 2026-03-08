@@ -344,20 +344,14 @@ export default function BTCRegimeTracker() {
                   { range: '41-60%', label: 'Patience...', colorClass: 'text-yellow-500', min: 41 },
                   { range: '21-40%', label: 'Distribution Zone', colorClass: 'text-orange-500', min: 21 },
                   { range: '0-20%', label: 'Overheated', colorClass: 'text-red-500', min: 0 },
-                ].map((tier) => {
-                  const isActive = regime.label === tier.label;
-                  return (
+                ].map((tier) => (
                     <tr key={tier.range}>
                       <td className={`w-4 pr-2 ${tier.colorClass}`}>{"\u25a0"}</td>
                       <td className="text-slate-300 font-medium whitespace-nowrap">{tier.range}</td>
                       <td className="px-1">:</td>
-                      <td>
-                        {tier.label}
-                        {isActive && <span className="text-slate-500 italic ml-1">— {regime.description}</span>}
-                      </td>
+                      <td>{tier.label}</td>
                     </tr>
-                  );
-                })}
+                ))}
               </tbody>
             </table>
           </div>

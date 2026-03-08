@@ -360,7 +360,7 @@ export default function BTCRegimeTracker() {
                   <td className="w-4 pr-2 text-orange-500">{"\u25a0"}</td>
                   <td className="text-slate-300 font-medium whitespace-nowrap">21-40%</td>
                   <td className="px-1">:</td>
-                  <td>Distribution Zone</td>
+                  <td>Distribution Zone — <span className="text-slate-500 italic">Risky. Scale out of position.</span></td>
                 </tr>
                 <tr>
                   <td className="w-4 pr-2 text-red-500">{"\u25a0"}</td>

@@ -103,11 +103,11 @@ const STATUS_CONFIG: Record<Status, {color: string;textColor: string;bgColor: st
 };
 
 const getRegimeSignal = (percentage: number) => {
-  if (percentage >= 81) return { label: 'MAX LONG, LFG!', color: 'from-emerald-600 to-emerald-400', bgGlow: 'shadow-emerald-500/30', description: 'Deep Value.' };
-  if (percentage >= 61) return { label: 'ACCUMULATION ZONE', color: 'from-emerald-600 to-amber-500', bgGlow: 'shadow-emerald-500/20', description: 'Attractive. Scale into position.' };
-  if (percentage >= 41) return { label: 'PATIENCE...', color: 'from-amber-600 to-amber-400', bgGlow: 'shadow-amber-500/20', description: 'So so. Wait for more confirmation.' };
-  if (percentage >= 21) return { label: 'DISTRIBUTION ZONE', color: 'from-amber-600 to-red-500', bgGlow: 'shadow-amber-500/20', description: 'Risky. Scale out of position.' };
-  return { label: 'GTFO, Baby!', color: 'from-red-600 to-red-400', bgGlow: 'shadow-red-500/30', description: 'Overheated.' };
+  if (percentage >= 81) return { label: 'Deep Value', color: 'from-emerald-600 to-emerald-400', bgGlow: 'shadow-emerald-500/30', description: 'Max long, LFG!' };
+  if (percentage >= 61) return { label: 'Accumulation Zone', color: 'from-emerald-600 to-amber-500', bgGlow: 'shadow-emerald-500/20', description: 'Attractive. Scale into position.' };
+  if (percentage >= 41) return { label: 'Patience...', color: 'from-amber-600 to-amber-400', bgGlow: 'shadow-amber-500/20', description: 'So-so. Wait for more confirmation.' };
+  if (percentage >= 21) return { label: 'Distribution Zone', color: 'from-amber-600 to-red-500', bgGlow: 'shadow-amber-500/20', description: 'Risky. Scale out of positions.' };
+  return { label: 'Overheated', color: 'from-red-600 to-red-400', bgGlow: 'shadow-red-500/30', description: 'GTFO, baby!' };
 };
 
 const IndicatorCard = ({ indicator, status, expanded, onToggle }: {indicator: Indicator;status: Status;expanded: boolean;onToggle: () => void;}) => {
@@ -338,36 +338,26 @@ export default function BTCRegimeTracker() {
           <div className="text-sm text-slate-400 leading-relaxed">
             <table className="border-collapse table-auto w-auto">
               <tbody className="[&>tr]:align-top [&>tr:not(:last-child)]:border-0 [&>tr:not(:last-child)]:border-transparent [&>tr:not(:last-child)]:[&>td]:pb-1.5">
-                <tr>
-                  <td className="w-4 pr-2 text-emerald-500">{"\u25a0"}</td>
-                  <td className="text-slate-300 font-medium whitespace-nowrap">81-100%</td>
-                  <td className="px-1">:</td>
-                  <td>Max Long, LFG! — <span className="text-slate-500 italic">Deep Value.</span></td>
-                </tr>
-                <tr>
-                  <td className="w-4 pr-2 text-[#69c38a]">{"\u25a0"}</td>
-                  <td className="text-slate-300 font-medium whitespace-nowrap">61-80%</td>
-                  <td className="px-1">:</td>
-                  <td>Accumulation Zone — <span className="text-slate-500 italic">Attractive. Scale into position.</span></td>
-                </tr>
-                <tr>
-                  <td className="w-4 pr-2 text-yellow-500">{"\u25a0"}</td>
-                  <td className="text-slate-300 font-medium whitespace-nowrap">41-60%</td>
-                  <td className="px-1">:</td>
-                  <td>Patience... — <span className="text-slate-500 italic">Wait for more confirmation.</span></td>
-                </tr>
-                <tr>
-                  <td className="w-4 pr-2 text-orange-500">{"\u25a0"}</td>
-                  <td className="text-slate-300 font-medium whitespace-nowrap">21-40%</td>
-                  <td className="px-1">:</td>
-                  <td>Distribution Zone — <span className="text-slate-500 italic">Risky. Scale out of position.</span></td>
-                </tr>
-                <tr>
-                  <td className="w-4 pr-2 text-red-500">{"\u25a0"}</td>
-                  <td className="text-slate-300 font-medium whitespace-nowrap">0-20%</td>
-                  <td className="px-1">:</td>
-                  <td>GTFO, Baby! — <span className="text-slate-500 italic">Overheated.</span></td>
-                </tr>
+                {[
+                  { range: '81-100%', label: 'Deep Value', colorClass: 'text-emerald-500', min: 81 },
+                  { range: '61-80%', label: 'Accumulation Zone', colorClass: 'text-[#69c38a]', min: 61 },
+                  { range: '41-60%', label: 'Patience...', colorClass: 'text-yellow-500', min: 41 },
+                  { range: '21-40%', label: 'Distribution Zone', colorClass: 'text-orange-500', min: 21 },
+                  { range: '0-20%', label: 'Overheated', colorClass: 'text-red-500', min: 0 },
+                ].map((tier) => {
+                  const isActive = regime.label === tier.label;
+                  return (
+                    <tr key={tier.range}>
+                      <td className={`w-4 pr-2 ${tier.colorClass}`}>{"\u25a0"}</td>
+                      <td className="text-slate-300 font-medium whitespace-nowrap">{tier.range}</td>
+                      <td className="px-1">:</td>
+                      <td>
+                        {tier.label}
+                        {isActive && <span className="text-slate-500 italic ml-1">— {regime.description}</span>}
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
